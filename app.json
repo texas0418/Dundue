@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Dundue",
+    "slug": "dundue",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "dundue",
+    "owner": "boyscout1970",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dundue.app",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.dundue.app",
+      "predictiveBackGestureEnabled": false
+    }
+  }
+}
