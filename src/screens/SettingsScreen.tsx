@@ -168,7 +168,7 @@ export default function SettingsScreen({ onBack }: Props) {
             );
           })}
         </View>
-        <Text style={styles.hint}>System follows your phone's light/dark setting.</Text>
+        <Text style={styles.hint}>System follows your phone&apos;s light/dark setting.</Text>
       </View>
 
       <View style={styles.card}>
