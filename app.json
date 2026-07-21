@@ -17,6 +17,10 @@
     "android": {
       "package": "com.dundue.app",
       "predictiveBackGestureEnabled": false
-    }
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font"
+    ]
   }
 }
