@@ -52,20 +52,9 @@ RevenueCat one-time unlock (`dundue_pro_lifetime`): unlimited invoices after
   all comparisons are local-calendar-day, DST-proof (tested).
 - Long-press a history entry to un-log a mistaken "mark sent".
 
-## Pre-ship TODOs
+## To-dos and bugs
 
-- [ ] App icon + splash (assets/ is empty; app.json has no icon refs yet) —
-      dark-mode-aware splash since userInterfaceStyle is "automatic"
-- [ ] Create EAS project (`eas init`, owner boyscout1970) and paste projectId into app.json
-- [ ] Create RevenueCat project; paste real keys into src/revenuecat.ts and
-      CONFIRM the entitlement id on the RC dashboard (`pro` vs `Pro` trap)
-- [ ] Create `dundue_pro_lifetime` non-consumable in App Store Connect / Play
-- [ ] Test mailto: with long bodies on a real device (some Android mail apps
-      truncate very long mailto bodies; Share is the fallback path)
-- [ ] Runtime pass in Expo Go: add invoice → queue appears → compose → mark
-      sent → ladder advances; backup export/import round-trip
-- [ ] App Store subtitle: "Get invoices paid, politely" (name collision-checked
-      2026-07-19 — no app/fintech conflicts found)
-- [ ] Consider v2: local notifications on queue days (needs dev build to test
-      properly on Android), custom template editing (Pro perk), partial
-      payments, CSV export, Invoicer import
+Tracked in [GitHub Issues](https://github.com/texas0418/Dundue/issues) — the
+`pre-ship` label is the App Store submission checklist, `tech-debt` items have
+inline eslint-disables pointing at them, and `handoff` issues carry
+session-to-session notes. See AGENTS.md for the PR/CI workflow.

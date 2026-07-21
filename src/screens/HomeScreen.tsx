@@ -136,7 +136,7 @@ export default function HomeScreen({
 
       {open.length === 0 && settled.length === 0 && (
         <Text style={styles.empty}>
-          Add an invoice you're waiting on. Dundue tells you when to nudge —
+          Add an invoice you&apos;re waiting on. Dundue tells you when to nudge —
           and writes the polite email for you.
         </Text>
       )}

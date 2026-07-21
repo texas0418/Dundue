@@ -37,7 +37,6 @@ import {
   StepKey,
   addDays,
   daysOverdue,
-  diffDays,
   dueShorthand,
   formatDayLong,
   formatMoney,
@@ -61,6 +60,7 @@ interface Props {
 
 const TERM_CHIPS = [7, 14, 30] as const;
 
+// eslint-disable-next-line max-lines-per-function, complexity -- tracked in #1
 export default function InvoiceScreen({ invoiceId, onBack }: Props) {
   const { settings } = useSettings();
   const pro = useProAccess();
