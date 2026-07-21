@@ -4,6 +4,7 @@
     "slug": "dundue",
     "version": "1.0.0",
     "orientation": "portrait",
+    "icon": "./assets/icon.png",
     "scheme": "dundue",
     "owner": "boyscout1970",
     "userInterfaceStyle": "automatic",
@@ -16,7 +17,11 @@
     },
     "android": {
       "package": "com.dundue.app",
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#146c60"
+      }
     },
     "plugins": [
       "expo-asset",
