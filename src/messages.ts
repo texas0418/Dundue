@@ -22,9 +22,10 @@ export interface ReminderMessage {
   body: string;
 }
 
+/** Joined name + business, or '' when neither is set. Callers drop the
+ *  sign-off line entirely rather than print a placeholder like "Me". */
 const signature = (ctx: MessageContext): string =>
-  [ctx.yourName.trim(), ctx.businessName.trim()].filter(Boolean).join('\n') ||
-  'Me';
+  [ctx.yourName.trim(), ctx.businessName.trim()].filter(Boolean).join('\n');
 
 const invoiceRef = (ctx: MessageContext): string =>
   ctx.invoiceNumber.trim() ? `invoice ${ctx.invoiceNumber.trim()}` : 'my recent invoice';
@@ -42,6 +43,7 @@ export function renderReminder(
   const numTag = ctx.invoiceNumber.trim() ? ` ${ctx.invoiceNumber.trim()}` : '';
   const hi = greeting(ctx);
   const sig = signature(ctx);
+  const signOff = sig ? `\n${sig}` : '';
   const days = ctx.daysOverdue;
 
   switch (step) {
@@ -52,7 +54,7 @@ export function renderReminder(
           `${hi}\n\n` +
           `Just a friendly heads-up that ${ref} for ${ctx.amountText} is due on ` +
           `${ctx.dueDateText}. No action needed if payment is already on its way.\n\n` +
-          `Thanks so much,\n${sig}`,
+          `Thanks so much,${signOff}`,
       };
     case 'due':
       return {
@@ -62,7 +64,7 @@ export function renderReminder(
           `A quick note that ${ref} for ${ctx.amountText} is due today, ` +
           `${ctx.dueDateText}. If you've already sent payment, please disregard ` +
           `this — and thank you!\n\n` +
-          `Best,\n${sig}`,
+          `Best,${signOff}`,
       };
     case 'overdue3':
       return {
@@ -72,7 +74,7 @@ export function renderReminder(
           `I hope you're well! This is a gentle nudge about ${ref} for ` +
           `${ctx.amountText}, which was due on ${ctx.dueDateText}. If payment is ` +
           `already on its way, feel free to ignore this.\n\n` +
-          `Thanks for your help,\n${sig}`,
+          `Thanks for your help,${signOff}`,
       };
     case 'overdue7':
       return {
@@ -82,7 +84,7 @@ export function renderReminder(
           `Following up on ${ref} for ${ctx.amountText}, now ${days} days past ` +
           `due (it was due ${ctx.dueDateText}). Could you let me know when I can ` +
           `expect payment? Happy to resend the invoice if that would help.\n\n` +
-          `Thank you,\n${sig}`,
+          `Thank you,${signOff}`,
       };
     case 'overdue14':
       return {
@@ -93,7 +95,7 @@ export function renderReminder(
           `now ${days} days past due. Please let me know the status of this ` +
           `payment, or a date I can expect it by. If there's any issue with the ` +
           `invoice itself, I'm glad to sort it out.\n\n` +
-          `Kind regards,\n${sig}`,
+          `Kind regards,${signOff}`,
       };
     case 'overdue30':
       return {
@@ -105,7 +107,7 @@ export function renderReminder(
           `7 days. If payment has already been sent, let me know so I can update ` +
           `my records; otherwise I may need to pause further work until the ` +
           `balance is settled.\n\n` +
-          `Regards,\n${sig}`,
+          `Regards,${signOff}`,
       };
   }
 }
