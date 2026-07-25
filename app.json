@@ -10,6 +10,7 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": false,
+      "buildNumber": "2",
       "bundleIdentifier": "com.dundue.app",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
