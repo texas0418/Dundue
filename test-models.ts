@@ -157,7 +157,13 @@ const bare = renderReminder('overdue3', {
 });
 eq('blank number subject', bare.subject, 'Quick nudge: invoice');
 eq('blank number body ref', bare.body.includes('my recent invoice'), true);
-eq('empty signature falls back', bare.body.endsWith('\nMe'), true);
+// empty signature drops the name line entirely — no "Me" placeholder
+eq('empty signature omits sign-off name', bare.body.endsWith('Thanks for your help,'), true);
+eq('empty signature has no placeholder', bare.body.includes('Me'), false);
+
+// a name-only signature still signs off (no business line)
+const nameOnly = renderReminder('due', { ...ctx, businessName: '', daysOverdue: 0 });
+eq('name-only signature', nameOnly.body.endsWith('Best,\nSimon'), true);
 
 // every step renders non-empty for a minimal context
 for (const s of STEPS) {

@@ -269,6 +269,8 @@ export default function InvoiceScreen({ invoiceId, onBack }: Props) {
       style={styles.root}
       contentContainerStyle={styles.scroll}
       keyboardShouldPersistTaps="handled"
+      keyboardDismissMode="interactive"
+      automaticallyAdjustKeyboardInsets
     >
       <StatusBar style={statusBarStyle} />
       <View style={styles.topBar}>
@@ -315,19 +317,29 @@ export default function InvoiceScreen({ invoiceId, onBack }: Props) {
               No email on file for {client.name} — add one in Clients, or use Share.
             </Text>
           )}
+          {!settings.yourName.trim() && !settings.businessName.trim() && (
+            <Text style={styles.warn}>
+              This reminder is unsigned. Add your name in Settings so it goes out
+              looking professional.
+            </Text>
+          )}
           <View style={styles.composerBtns}>
+            <Pressable style={styles.primaryBtn} onPress={share}>
+              <Text style={styles.primaryBtnText}>Share…</Text>
+            </Pressable>
             {client && client.email.trim() !== '' && (
-              <Pressable style={styles.primaryBtn} onPress={openEmail}>
-                <Text style={styles.primaryBtnText}>Open in Email</Text>
+              <Pressable style={styles.btn} onPress={openEmail}>
+                <Text style={styles.btnText}>Open in Email</Text>
               </Pressable>
             )}
-            <Pressable style={styles.btn} onPress={share}>
-              <Text style={styles.btnText}>Share…</Text>
-            </Pressable>
             <Pressable style={styles.btn} onPress={() => markSent(step.key)}>
               <Text style={styles.btnText}>Mark sent</Text>
             </Pressable>
           </View>
+          <Text style={styles.hint}>
+            Share lets you choose which app and account sends — pick your
+            business email there, or tap the From field in the draft.
+          </Text>
         </View>
       )}
 
