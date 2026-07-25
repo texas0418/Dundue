@@ -50,6 +50,17 @@ export default function HomeScreen({
     listSettledInvoices(5),
   );
   const [sentByInvoice, setSentByInvoice] = useState(() => sentStepsByOpenInvoice());
+  // Upcoming starts collapsed — it's the least urgent and often the longest.
+  const [collapsed, setCollapsed] = useState<Set<Urgency>>(() => new Set(['later']));
+  const [showSettled, setShowSettled] = useState(false);
+
+  const toggleSection = (key: Urgency) =>
+    setCollapsed((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
 
   // Kept for parity with sibling apps; the screen also remounts on navigation.
   const reload = useCallback(() => {
@@ -144,14 +155,17 @@ export default function HomeScreen({
       {sections.map(({ key, title, items }) => {
         if (items.length === 0) return null;
         const uc = urgency(key);
+        const isCollapsed = collapsed.has(key);
         return (
           <View key={key} style={styles.section}>
-            <View style={styles.sectionHeader}>
+            <Pressable style={styles.sectionHeader} onPress={() => toggleSection(key)}>
               <View style={[styles.dot, { backgroundColor: uc.main }]} />
               <Text style={styles.sectionTitle}>{title}</Text>
               <Text style={styles.sectionCount}>{items.length}</Text>
-            </View>
-            {items.map((inv) => (
+              <Text style={styles.caret}>{isCollapsed ? '▸' : '▾'}</Text>
+            </Pressable>
+            {!isCollapsed &&
+              items.map((inv) => (
               <Pressable
                 key={inv.id}
                 style={[styles.invoiceCard, { borderLeftColor: uc.main }]}
@@ -178,11 +192,17 @@ export default function HomeScreen({
 
       {settled.length > 0 && (
         <View style={styles.section}>
-          <View style={styles.sectionHeader}>
+          <Pressable
+            style={styles.sectionHeader}
+            onPress={() => setShowSettled((s) => !s)}
+          >
             <View style={[styles.dot, { backgroundColor: urgency('paid').main }]} />
             <Text style={styles.sectionTitle}>Recently settled</Text>
-          </View>
-          {settled.map((inv) => (
+            <Text style={styles.sectionCount}>{settled.length}</Text>
+            <Text style={styles.caret}>{showSettled ? '▾' : '▸'}</Text>
+          </Pressable>
+          {showSettled &&
+            settled.map((inv) => (
             <Pressable
               key={inv.id}
               style={styles.settledRow}
@@ -273,8 +293,9 @@ const makeStyles = (c: Palette) =>
       paddingHorizontal: 2,
     },
     dot: { width: 8, height: 8, borderRadius: 4 },
-    sectionTitle: { fontSize: 15, fontWeight: '600', color: c.textPrimary },
+    sectionTitle: { fontSize: 15, fontWeight: '600', color: c.textPrimary, flex: 1 },
     sectionCount: { fontSize: 13, color: c.textMuted },
+    caret: { fontSize: 12, color: c.textMuted, width: 16, textAlign: 'center' },
     invoiceCard: {
       backgroundColor: c.card,
       borderRadius: 12,
