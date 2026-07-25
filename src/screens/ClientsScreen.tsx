@@ -94,6 +94,8 @@ export default function ClientsScreen({ onBack }: Props) {
       style={styles.root}
       contentContainerStyle={styles.scroll}
       keyboardShouldPersistTaps="handled"
+      keyboardDismissMode="interactive"
+      automaticallyAdjustKeyboardInsets
     >
       <StatusBar style={statusBarStyle} />
       <View style={styles.topBar}>

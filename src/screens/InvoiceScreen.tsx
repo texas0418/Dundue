@@ -269,6 +269,8 @@ export default function InvoiceScreen({ invoiceId, onBack }: Props) {
       style={styles.root}
       contentContainerStyle={styles.scroll}
       keyboardShouldPersistTaps="handled"
+      keyboardDismissMode="interactive"
+      automaticallyAdjustKeyboardInsets
     >
       <StatusBar style={statusBarStyle} />
       <View style={styles.topBar}>
@@ -313,6 +315,12 @@ export default function InvoiceScreen({ invoiceId, onBack }: Props) {
           {client && !client.email.trim() && (
             <Text style={styles.warn}>
               No email on file for {client.name} — add one in Clients, or use Share.
+            </Text>
+          )}
+          {!settings.yourName.trim() && !settings.businessName.trim() && (
+            <Text style={styles.warn}>
+              This reminder is unsigned. Add your name in Settings so it goes out
+              looking professional.
             </Text>
           )}
           <View style={styles.composerBtns}>

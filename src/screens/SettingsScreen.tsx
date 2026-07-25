@@ -100,6 +100,8 @@ export default function SettingsScreen({ onBack }: Props) {
       style={styles.root}
       contentContainerStyle={styles.scroll}
       keyboardShouldPersistTaps="handled"
+      keyboardDismissMode="interactive"
+      automaticallyAdjustKeyboardInsets
     >
       <StatusBar style={statusBarStyle} />
       <View style={styles.topBar}>
