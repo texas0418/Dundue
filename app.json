@@ -9,7 +9,7 @@
     "owner": "boyscout1970",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.dundue.app",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
