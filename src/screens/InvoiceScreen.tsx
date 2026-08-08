@@ -48,6 +48,7 @@ import {
   todayNoonMs,
 } from '../models';
 import { mailtoUrl, renderReminder } from '../messages';
+import { maybeAskForReview } from '../review';
 import { useProAccess } from '../proAccess';
 import { FREE_INVOICES } from '../revenuecat';
 import { useSettings } from '../SettingsContext';
@@ -176,6 +177,9 @@ export default function InvoiceScreen({ invoiceId, onBack }: Props) {
     const next = { ...invoice, status, paidMs };
     updateInvoice(next);
     setInvoice(next);
+    // The win moment: an invoice got paid. One-time review ask lives here
+    // and nowhere else.
+    if (status === 'paid') maybeAskForReview();
   };
 
   const confirmDelete = () => {
