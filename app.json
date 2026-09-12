@@ -39,7 +39,8 @@
         }
       ],
       "expo-sharing",
-      "./plugins/withReleaseSigning.js"
+      "./plugins/withReleaseSigning.js",
+      "expo-sqlite"
     ]
   }
 }
