@@ -2,7 +2,7 @@
   "expo": {
     "name": "Dundue",
     "slug": "dundue",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "dundue",
@@ -10,7 +10,7 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "supportsTablet": false,
-      "buildNumber": "2",
+      "buildNumber": "3",
       "bundleIdentifier": "com.dundue.app",
       "infoPlist": {
         "ITSAppUsesNonExemptEncryption": false
