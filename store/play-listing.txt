@@ -1,0 +1,59 @@
+DUNDUE — GOOGLE PLAY STORE LISTING (draft 2026-08-15)
+=======================================================
+
+APP NAME (30 chars max)
+Dundue: Invoice Reminders
+
+SHORT DESCRIPTION (80 chars max)
+Know exactly when to nudge a late invoice — with the polite email pre-written.
+
+FULL DESCRIPTION (4000 chars max)
+-----------------------------------------------------
+Waiting on an invoice is bad enough. Writing the awkward "just checking in" email is worse. Dundue does both parts for you.
+
+Track the invoices you're owed, and Dundue tells you exactly when to nudge — then writes the polite email so you just tap send.
+
+THE SIX-STEP LADDER
+A proven follow-up sequence that escalates gently:
+1. Courtesy heads-up — 3 days before the due date
+2. Due-today note
+3. Friendly check-in — a few days past
+4. Firmer reminder — two weeks past
+5. Direct request — three weeks past
+6. Final notice — 30 days past
+
+Each step is pre-written, professional, and one tap from your mail app or share sheet. Sent reminders are logged, so the ladder never repeats a step and never fires one it blew past.
+
+YOU STAY IN CONTROL
+Dundue never contacts your clients. Every email goes out from your own address, sent by you, when you decide. Dundue just makes sure you never forget and never have to find the words.
+
+SEE WHO OWES YOU AT A GLANCE
+• Invoices color-coded by urgency: overdue, due soon, upcoming, paid
+• Per-client history — who pays on time, who always needs a nudge
+• Log payments as they land
+
+PRIVATE BY DESIGN
+Everything lives on your phone. No account, no cloud, no analytics. Your client list and amounts are nobody's business but yours.
+
+Built for freelancers, contractors, and small agencies — anyone who does the work, sends the invoice, and then has to be their own accounts-receivable department.
+
+Stop dreading the follow-up. Dundue remembers, Dundue writes, you get paid.
+-----------------------------------------------------
+
+CATEGORY: Business (match iOS)
+WEBSITE: https://simonbuilds.app/dundue/
+PRIVACY POLICY URL (verified live 2026-08-15): https://texas0418.github.io/dundue-privacy/
+
+GRAPHIC ASSETS (store/)
+- play-icon-512.png — DONE
+- play-feature-graphic.png (1024x500) — DONE
+- screenshots-android/ — DONE 2026-08-15: 01-who-owes-you (outstanding + reminders-to-send + overdue card), 02-prewritten-reminder (signed second follow-up w/ Share/Open in Email/Mark sent), 03-clients (1080x2160, from release APK on Pixel 6 emulator)
+
+DATA SAFETY FORM (prep)
+- Local-first, no network calls; nothing collected or shared
+- Purchase history via Google Play Billing/RevenueCat if Pro unlock present — verify product at submission (react-native-purchases is in deps; fail-open pattern)
+
+CONTENT RATING: Everyone
+
+RELEASE NOTES (first release)
+Dundue arrives on Android: track the invoices you're owed, and send the right polite reminder at the right time — a six-step ladder, pre-written for you.
