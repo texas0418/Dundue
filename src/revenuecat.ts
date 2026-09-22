@@ -25,6 +25,9 @@ export const RC_API_KEY_ANDROID = 'goog_ukkFvvzsqSbKiARjmFAYAPWPrQk'; // starts 
 export const ENTITLEMENT_ID = 'pro';
 
 // The App Store / Play non-consumable product id. Must match App Store Connect exactly.
+// PRICE: $9.99 one-time on both stores, confirmed by Simon 2026-09-21. The Play product
+// dundue_pro_lifetime was created at $9.99 the same day. This line is the only place the
+// price is written down outside the store consoles, so change it here if it ever changes.
 export const PRODUCT_ID = 'dundue_pro_lifetime';
 
 /** Invoices you can track before the Pro prompt. */
