@@ -20,6 +20,7 @@ import { ThemeMode, useSettings } from '../SettingsContext';
 import { useProAccess, isFailOpen, purchasePro, restorePurchases } from '../proAccess';
 import { FREE_INVOICES } from '../revenuecat';
 import { Palette, useTheme } from '../theme';
+import MoreApps from '../components/MoreApps';
 
 interface Props {
   onBack: () => void;
@@ -209,6 +210,8 @@ export default function SettingsScreen({ onBack }: Props) {
           <Text style={styles.btnText}>Restore purchases</Text>
         </Pressable>
       </View>
+
+        <MoreApps />
     </ScrollView>
   );
 }
