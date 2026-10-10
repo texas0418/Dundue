@@ -18,7 +18,7 @@
 
 // Public SDK keys (safe to ship in the app bundle — these are NOT secret).
 export const RC_API_KEY_IOS = 'appl_zhepCMTCKrUEHpuKUmtdZOdkSoq'; // RC project e0229eae
-export const RC_API_KEY_ANDROID = 'REPLACE_WITH_RC_ANDROID_KEY'; // starts with "goog_"
+export const RC_API_KEY_ANDROID = 'goog_ukkFvvzsqSbKiARjmFAYAPWPrQk'; // starts with "goog_"
 
 // The entitlement that grants Pro. CONFIRMED on the RC Entitlements page
 // 2026-07-25: identifier is exactly `pro` (lowercase), display name "Dundue Pro".
